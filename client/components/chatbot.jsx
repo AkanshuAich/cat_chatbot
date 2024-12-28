@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
 
+
 const ChatInterface = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -59,6 +60,8 @@ const ChatInterface = () => {
     const isUser = message.role === 'user';
     
     return (
+      
+      
       <div
         key={index}
         className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}
@@ -79,6 +82,7 @@ const ChatInterface = () => {
   };
 
   return (
+        
     <div className="h-screen flex flex-col bg-gray-900 text-white p-4">
       <Card className="flex-1 bg-gray-800 border-gray-700 mb-4 overflow-hidden flex flex-col">
         <ScrollArea className="flex-1 p-4">
