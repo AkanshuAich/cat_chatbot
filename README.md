@@ -1,10 +1,10 @@
 # cat_chatbot
 How to run:
->> Frontend
+Frontend
   --> cd frontend
   --> npm i
   --> npm run dev
->> Backend
+Backend
   --> cd backend
   --> pip install -r requirements.txt
   --> python app.py
