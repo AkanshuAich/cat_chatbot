@@ -3,7 +3,7 @@ How to run:
 
 Frontend
 
-  --> cd frontend
+  --> cd client
   
   --> npm i
   
@@ -11,7 +11,7 @@ Frontend
 
 Backend
 
-  --> cd backend
+  --> cd server
   
   --> pip install -r requirements.txt
   
