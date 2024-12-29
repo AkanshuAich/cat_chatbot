@@ -11,7 +11,7 @@ const ChatInterface = () => {
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef(null);
 
-  // Auto scroll to bottom when new messages arrive
+  // Added auto scroll to bottom feature when new messages arrive
   useEffect(() => {
     if (scrollAreaRef.current) {
       const scrollArea = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
@@ -25,7 +25,7 @@ const ChatInterface = () => {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // Add user message to chat
+    // user message is added to chat
     const userMessage = { role: 'user', content: input };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
@@ -38,8 +38,8 @@ const ChatInterface = () => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        mode: 'cors', // Enable CORS
-        credentials: 'same-origin', // Include credentials if needed
+        mode: 'cors', // I have enabled CORS for cross-connection
+        credentials: 'same-origin', 
         body: JSON.stringify({ message: input }),
       });
 

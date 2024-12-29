@@ -6,16 +6,16 @@ from openai import OpenAI
 import requests
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+# environment variables are loaded from .env file
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Initialize OpenAI client
+# OpenAI client is initialized
 client = OpenAI()
 CAT_API_KEY = os.getenv("CAT_API_KEY")
-OPENAI_MODEL = "gpt-4"  # Change this to your actual model
+OPENAI_MODEL = "gpt-4o-mini"  # added gpt-4o-mini model
 
 cat_function = {
     "name": "get_cat_images",
@@ -76,12 +76,12 @@ def chat():
             function_call="auto",
         )
         
-        # Get the message from the response
+        # fetched the message from the response
         message = response.choices[0].message
 
-        # Check if there's a function call
+        # Checked if there's a function call
         if message.function_call:
-            # Parse function call
+            # Parsed function call
             function_name = message.function_call.name
             function_args = json.loads(message.function_call.arguments)
 
@@ -89,7 +89,7 @@ def chat():
                 breed = function_args.get("breed")
                 count = function_args.get("count", 1)
 
-                # Call the Cat API
+                # Called the Cat API
                 cat_images = call_cat_api(breed, count)
 
                 return jsonify({
@@ -98,10 +98,10 @@ def chat():
                     "images": cat_images
                 })
 
-        # If no function call, return the content
+        # If there is no function call,the content is returned
         return jsonify({
             "role": "assistant",
-            "content": message.content or ""  # Access content directly as a property
+            "content": message.content or ""  # content is accessed directly as a property
         })
 
     except Exception as e:
